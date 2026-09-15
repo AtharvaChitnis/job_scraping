@@ -3,6 +3,7 @@ from typing import Dict, List
 import re
 
 from extractors.contact_extractors import extract_email, extract_phone
+from extractors.name_extractor import extract_name
 from parser.pdf_parser import extract_pdf_text
 from parser.text_cleaner import clean_text
 
@@ -77,37 +78,7 @@ class ResumePDFParser:
 
     @staticmethod
     def extract_name(text: str) -> str | None:
-        """
-        Basic name extraction.
-
-        Assumes the candidate's name is usually near the beginning
-        of the resume.
-        """
-        lines = [line.strip() for line in text.splitlines() if line.strip()]
-
-        for line in lines[:10]:
-            if (
-                len(line.split()) >= 2
-                and len(line) <= 60
-                and not re.search(r"[@|:/\\]", line)
-                and not re.search(r"\d", line)
-            ):
-                normalized = line.lower()
-
-                excluded = {
-                    "resume",
-                    "curriculum vitae",
-                    "cv",
-                    "profile",
-                    "summary",
-                    "objective",
-                    "contact",
-                }
-
-                if normalized not in excluded:
-                    return line
-
-        return None
+        return extract_name(text)
 
     def parse(self) -> Dict:
         """Parse the resume into a structured dictionary."""
