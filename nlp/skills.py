@@ -1,7 +1,6 @@
 SKILLS = [
     "Python",
     "Java",
-    "C",
     "C++",
     "C#",
     "JavaScript",
@@ -16,9 +15,12 @@ SKILLS = [
     "Flask",
     "FastAPI",
     "Django",
+    "REST APIs",
     "Machine Learning",
     "Deep Learning",
     "Natural Language Processing",
+    "Generative AI",
+    "Prompt Engineering",
     "NLP",
     "PyTorch",
     "TensorFlow",
@@ -27,6 +29,7 @@ SKILLS = [
     "NumPy",
     "spaCy",
     "BeautifulSoup",
+    "OpenAI",
     "Git",
     "GitHub",
     "Docker",
@@ -39,4 +42,13 @@ SKILLS = [
     "Power BI",
     "Tableau",
     "Excel",
+    "JIRA",
+    "Postman",
+    "VS Code",
+    "Jupyter Notebook",
+    "Data Analysis",
+    "Data Structures & Algorithms",
 ]
+
+SKILLS_LOWER = {skill.lower() for skill in SKILLS}
+SKILL_LOOKUP = {skill.lower(): skill for skill in SKILLS}
